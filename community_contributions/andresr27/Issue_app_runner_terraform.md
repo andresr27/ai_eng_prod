@@ -67,7 +67,7 @@ Since App Runner is no longer an option for new on-demand projects, we should mi
 * **Credit-friendly:** It fully supports AWS Promotional Credits.
 * **On-demand:** It still allows for the same create-and-destroy workflow via Terraform.
 
-### ECS Fargate vs. ECS Express
+### ECS Fargate vs. ECS Express:
 
 ECS might be tempting due to its Express Mode, which abstracts away the ALB and networking, but it is not a direct replacement for App Runner. Express Mode is more of a quick start for simple applications, while standard ECS Fargate gives you full control over the infrastructure. However, if you plan to use custom domains, complex routing, or if you need more control over the load balancer, standard ECS Fargate is the better choice.
 
@@ -80,7 +80,7 @@ ECS might be tempting due to its Express Mode, which abstracts away the ALB and 
 | **Complexity** | High; requires a deep understanding of AWS networking.      | Low; designed for zero-config deployments. |
 | **Use Case** | Complex microservices, custom routing, and enterprise apps. | Prototyping, small APIs, and developers who want to avoid VPC math. |
 
-### **Recommendation**
+### Recommendations:
 1.  **Discard App Runner code:** Use Express Mode for simple deployments, but if you want to use a custom domain, go with standard ECS Fargate for better control and future-proofing.
-2.  **Refactor Terraform:** Update the `main.tf` to use `aws_ecs_cluster`, `aws_ecs_task_definition`, and `aws_ecs_service` (Fargate type).
+2.  **Remember when you deploy a ECS service:** you create several resource like: `aws_ecs_cluster`, `aws_ecs_task_definition`, and `aws_ecs_service`, even if they are not explicitly defined in your Terraform code, they are created under the hood by the AWS provider when you define an `aws_ecs_service` resource.
 3.  **Maintain ECR:** You can keep the **Amazon ECR** repository, as both App Runner and ECS use the same image registry.
