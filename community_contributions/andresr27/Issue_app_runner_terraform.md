@@ -51,7 +51,7 @@ resource "aws_apprunner_service" "app_runner" {
 
 
 ### Error Output:
-<img src="images/app-runner-error.png" alt="App Runner Error" width="800"/>
+<img src="images/app-runner-error.png" alt="App Runner Error" width="1200"/>
 
 ### The Root Cause:
 * **Service Transition:** AWS has begun the sunsetting process for **AWS App Runner**. As of **April 30, 2026**, AWS has restricted new service "subscriptions" for accounts that were not already active users of the service.
