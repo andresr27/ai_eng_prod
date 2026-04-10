@@ -1,6 +1,6 @@
 ## **Issue: Terraform apply errors when creating App Runner Configurations**
 
-**The Problem:**
+### The Problem:
 Some people that have been using AWS and Terraform for a long time often resist to using the UI, this might bring unexpected results when folliwing instructions in a course or article. Today while attempting to deploy via Terraform, the AWS API returned a `SubscriptionRequiredException (400)`. This error indicates that the account is not authorized to create new App Runner services. Why?
 
 ### Setup:
